@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/international" android:icon="@drawable/announcement"
+            android:title="Service Announcement" />
+        <item android:id="@+id/todays_event" android:icon="@drawable/event"
+            android:title="Today's Event" />
+                <item android:id="@+id/news" android:icon="@drawable/church_news"
+                    android:title="Faith Theater Project" />
+                <item android:id="@+id/gostores" android:icon="@drawable/book"
+                    android:title="G.O's Book Store" />
+        <item android:id="@+id/other_books" android:icon="@drawable/others"
+            android:title="Others Book/Audio Stores" />
+        <item android:id="@+id/service" android:icon="@drawable/background"
+            android:title="Service Group/Units" />
+
+        <item android:id="@+id/meetPastor" android:icon="@drawable/background"
+            android:title="Meet a Pastor" />
+
+
+
+
+
+    </group>
+
+
+
+</menu>
