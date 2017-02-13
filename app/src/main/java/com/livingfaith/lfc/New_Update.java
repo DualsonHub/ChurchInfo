@@ -33,6 +33,7 @@ public class New_Update extends AppCompatActivity {
         //getting a refernce to the progressbar view
         pd = (ProgressBar) findViewById(R.id.loading_spinner4);
 
+
         Inter_Activity main = new Inter_Activity();
         //   if (main.isOnline()) {
 
@@ -90,7 +91,7 @@ public class New_Update extends AppCompatActivity {
         });
 
 
-        webView.loadUrl("http://nextdeegit.com.ng/lfcapp/news/");
+        webView.loadUrl("http://www.lfciyekogba.org/news/");
 
 
     }

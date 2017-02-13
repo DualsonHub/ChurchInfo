@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity
     AdapaterGridView gridviewAdapter;
     ArrayList<GridViewItem_2> data = new ArrayList<GridViewItem_2>();
     TextView textView;
-    int[] names = {R.string.announcement,R.string.today,R.string.news,R.string.go_store,R.string.other_book_stores,R.string.service_groups,R.string.donation,R.string.appointment};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +103,8 @@ public class MainActivity extends AppCompatActivity
 
                     new AlertDialog.Builder(MainActivity.this)
                             // .setIcon(android.R.drawable.ic_dialog_alert)
-                            .setTitle("Faith Theater Project")
-                            .setMessage("Please visit the Living Faith Church secretary at any branch worldwide to get the guild lines on sowing your seed. Thank you!")
+                            .setTitle("Home cell")
+                            .setMessage("Info coming soon")
                             .setPositiveButton("OK", new DialogInterface.OnClickListener()
                             {
                                 @Override
@@ -131,8 +130,8 @@ public class MainActivity extends AppCompatActivity
 
 
         data.add(new GridViewItem_2("Service Announcement", getResources().getDrawable(R.drawable.icon_one)));
-        data.add(new GridViewItem_2(getResources().getString(R.string.today), getResources().getDrawable(R.drawable.icon_two)));
-        data.add(new GridViewItem_2(getResources().getString(R.string.news), getResources().getDrawable(R.drawable.icon_three)));
+        data.add(new GridViewItem_2(getResources().getString(R.string.event), getResources().getDrawable(R.drawable.icon_two)));
+        data.add(new GridViewItem_2(getResources().getString(R.string.homecell), getResources().getDrawable(R.drawable.icon_three)));
         data.add(new GridViewItem_2(getResources().getString(R.string.go_store), getResources().getDrawable(R.drawable.icon_four)));
         data.add(new GridViewItem_2(getResources().getString(R.string.other_book_stores), getResources().getDrawable(R.drawable.mony)));
         data.add(new GridViewItem_2(getResources().getString(R.string.service_groups), getResources().getDrawable(R.drawable.icon_six)));
@@ -142,7 +141,7 @@ public class MainActivity extends AppCompatActivity
         setDataAdapter();
     }
     private void setDataAdapter() {
-        gridviewAdapter = new AdapaterGridView(this, R.layout.fragment_list_item_1, data);
+        gridviewAdapter = new AdapaterGridView(this, R.layout.home_item, data);
         gridview.setAdapter(gridviewAdapter);
     }
 

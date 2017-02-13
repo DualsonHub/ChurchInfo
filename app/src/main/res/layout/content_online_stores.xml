@@ -16,6 +16,7 @@
         android:id="@+id/error"
         />
     <WebView
+        android:visibility="gone"
         android:id="@+id/webView1"
 
         android:layout_width="fill_parent"

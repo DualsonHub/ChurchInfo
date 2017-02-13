@@ -89,7 +89,7 @@ public class Events extends AppCompatActivity {
         });
 
 
-        webView.loadUrl("http://nextdeegit.com.ng/lfcapp/events/");
+        webView.loadUrl("http://www.lfciyekogba.org/events/");
 
 
     }

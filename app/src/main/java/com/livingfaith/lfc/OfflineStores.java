@@ -62,11 +62,11 @@ public class OfflineStores extends android.support.v4.app.Fragment {
 
             }
         });
-        data.add(new GridViewItem_2(getResources().getString(R.string.marvelous), getResources().getDrawable(R.drawable.stores_holder)));
+       /* data.add(new GridViewItem_2(getResources().getString(R.string.marvelous), getResources().getDrawable(R.drawable.stores_holder)));
         data.add(new GridViewItem_2(getResources().getString(R.string.boldoz), getResources().getDrawable(R.drawable.stores_holder)));
         data.add(new GridViewItem_2(getResources().getString(R.string.boldoz), getResources().getDrawable(R.drawable.stores_holder)));
         data.add(new GridViewItem_2(getResources().getString(R.string.boldoz), getResources().getDrawable(R.drawable.stores_holder)));
-
+*/
         setDataAdapter();
 
 

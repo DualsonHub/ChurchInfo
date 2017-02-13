@@ -97,7 +97,7 @@ public class Inter_Activity extends AppCompatActivity {
         });
 
 
-            webView.loadUrl("http://nextdeegit.com.ng/lfcapp/service-groups/");
+            webView.loadUrl("http://www.lfciyekogba.org/service-units/");
 
 
 
@@ -163,7 +163,7 @@ public class Inter_Activity extends AppCompatActivity {
                             });
 
 
-                            webView.loadUrl("http://nextdeegit.com.ng/lfcapp/service-groups/");
+                            webView.loadUrl("http://www.lfciyekogba.org/service-units/");
 
 
 
@@ -290,7 +290,7 @@ public class Inter_Activity extends AppCompatActivity {
                 });
 
 
-                webView.loadUrl("http://nextdeegit.com.ng/lfcapp/service-groups/");
+                webView.loadUrl("http://www.lfciyekogba.org/service-units/");
 
 
 

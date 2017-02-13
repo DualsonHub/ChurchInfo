@@ -95,7 +95,7 @@ public class Announcement extends AppCompatActivity {
         });
 
 
-        webView.loadUrl("http://nextdeegit.com.ng/lfcapp/announcement/");
+        webView.loadUrl("http://www.lfciyekogba.org/announcement/");
 
 
     }
