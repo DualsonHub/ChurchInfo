@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
 
         data.add(new GridViewItem_2("Service Announcement", getResources().getDrawable(R.drawable.icon_one)));
         data.add(new GridViewItem_2(getResources().getString(R.string.event), getResources().getDrawable(R.drawable.icon_two)));
-        data.add(new GridViewItem_2(getResources().getString(R.string.homecell), getResources().getDrawable(R.drawable.icon_three)));
+        data.add(new GridViewItem_2(getResources().getString(R.string.homecell), getResources().getDrawable(R.drawable.house_fs)));
         data.add(new GridViewItem_2(getResources().getString(R.string.go_store), getResources().getDrawable(R.drawable.icon_four)));
         data.add(new GridViewItem_2(getResources().getString(R.string.other_book_stores), getResources().getDrawable(R.drawable.mony)));
         data.add(new GridViewItem_2(getResources().getString(R.string.service_groups), getResources().getDrawable(R.drawable.icon_six)));
