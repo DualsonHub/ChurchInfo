@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <WebView
+        android:id="@+id/webView_dom"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android" />
+    <TextView
+        android:id="@+id/announce_error_dom"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+
+    <ProgressBar
+        android:id="@+id/loading_spinner_dom"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminate="false"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

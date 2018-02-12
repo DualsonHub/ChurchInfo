@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LFC IYK Benin</string>
+    <string name="app_name">LFC Airport Road</string>
     <string name="search_hint">Search..</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -21,7 +21,7 @@
     <string name="title_item_detail">Item Detail</string>
     <string name="donation">Theme of the Month</string>
     <string name="title_activity_search_results1">SearchResultsActivity1</string>
-    <string name="title_activity_splash_screen">LFC IYK Benin</string>
+    <string name="title_activity_splash_screen">LFC Airport Road</string>
     <string name="appointment">Meet a Pastor</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="ignore">Ignore</string>
@@ -48,7 +48,7 @@
     <string name="title_activity_new__update">News Update</string>
     <string name="title_activity_others_books_offline">Others_books_offline</string>
     <string name="title_activity_other_books_online">Other_books_online</string>
-    <string name="title_activity_other_books">Book Stores</string>
+    <string name="title_activity_other_books">Testimonies</string>
     <string name="marvelous">Marvelous Publications</string>
     <string name="title_activity_about">About</string>
     <string name="about">About Living Faith Church</string>

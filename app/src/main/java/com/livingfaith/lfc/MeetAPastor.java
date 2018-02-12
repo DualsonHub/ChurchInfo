@@ -1,125 +1,138 @@
 package com.livingfaith.lfc;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.telephony.SmsManager;
-import android.util.Log;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MeetAPastor extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-String hanson, nsikak, kelly, nameMem,emailmem, phoneMem, message;
-    EditText phone, email,name;
+public class MeetAPastor extends AppCompatActivity  {
+    private WebView webView;
+    private ProgressBar pd;
+    private TextView tv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meet_apastor);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // toolbar.setLogo(R.drawable.meet_pastor);
         setSupportActionBar(toolbar);
+        CollapsingToolbarLayout collapsingTool = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
 
+        //collapsingTool.setBackground(getResources().getDrawable(R.drawable.grid_icons));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView tv = (TextView) findViewById(R.id.duration);
 
-        Spinner spinner = (Spinner) findViewById(R.id.email_spinner);
-        spinner.setOnItemSelectedListener(this);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.emails, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        tv = (TextView) findViewById(R.id.announce_error_meet);
+        //getting a refernce to the progressbar view
+        pd = (ProgressBar) findViewById(R.id.loading_spinner_meet);
 
-email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.phone);
-        name = (EditText) findViewById(R.id.name);
+        Inter_Activity main = new Inter_Activity();
+        //   if (main.isOnline()) {
 
-        Button button = (Button) findViewById(R.id.send);
-        button.setOnClickListener(new View.OnClickListener() {
+        //webView.setWebChromeClient(new WebChromeClient());
+        webView = (WebView) findViewById(R.id.webView_meet);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setUseWideViewPort(true);
+
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setSupportZoom(true);
+        webView.getSettings().setDisplayZoomControls(true);
+        webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+        webView.setScrollbarFadingEnabled(false);
+
+        webView.setWebViewClient(new WebViewClient() {
+            ProgressDialog prDialog;
+
             @Override
-            public void onClick(View v) {
-                String aEmailList[] = { nsikak, hanson,kelly };
-                 nameMem = name.getText().toString();
-                 emailmem = email.getText().toString();
-                 phoneMem = phone.getText().toString();
-                if(nameMem.isEmpty() || emailmem.isEmpty() || phoneMem.isEmpty() ){
-                    Toast.makeText(MeetAPastor.this, "please fill in your Information", Toast.LENGTH_SHORT).show();
-                }else{
-                     message = name.getText().toString();
-                    message += "\n" + phone.getText().toString();
-                    message += "\n" + email.getText().toString();
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
 
-                    Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                // prDialog = ProgressDialog.show(Inter_Activity.this, null, "loading, please wait...");
+                //prDialog.setCancelable(true);
+                pd.setVisibility(View.VISIBLE);
+                super.onPageStarted(view, url, favicon);
 
+            }
 
-                    emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);  //supposed to pass info of the emails to the email app
-                    emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Meeting Request");  //not taking stuff from an edittext, only things in quotes.
-                    emailIntent.putExtra(Intent.EXTRA_PHONE_NUMBER, phone.getText().toString());
-                    emailIntent.putExtra(Intent.EXTRA_TEXT, message);
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String
+                    failingUrl) {
 
+                if (errorCode == -2 || errorCode == -8) {
+                    view.loadData("There seems to be a problem with your Internet connection. Please try later", "text/html", "UTF-8");
+                    tv.setText("Failed to connect to the internet, please refresh");
+                } else if (errorCode == -14) {
+                    view.loadData("Page cannot be found on server", "text/html", "UTF-8");
+                    tv.setText("Failed to connect to the internet, please refresh");
+                } else {
+                    view.loadData("Page cannot be found on server", "text/html", "UTF-8");
+                    tv.setText("Failed to connect to the internet, please refresh");
+                    Toast.makeText(getApplicationContext(), "Network error , please contact service provider", Toast.LENGTH_SHORT).show();
 
-                    emailIntent.putExtra(Intent.EXTRA_PHONE_NUMBER, phone.getText().toString());
-                    emailIntent.setType("message/rfc822");
-                    startActivity(Intent.createChooser(emailIntent, "Send Email Using..."));
-                sendSMSMessage();
                 }
 
             }
+
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                //  prDialog.dismiss();
+                pd.setVisibility(View.INVISIBLE);
+                super.onPageFinished(view, url);
+            }
         });
+
+
+        webView.loadUrl("https://favouritemall.com/meet-a-pastor/");
+
+
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (webView.canGoBack()) {
+                        webView.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
+
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 
-    protected void sendSMSMessage() {
-        Log.i("Send SMS", "");
-        String phoneNo = "07016898349";
-       // String message = txtMessage.getText().toString();
-
-        try {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNo, null, message, null, null);
-            Toast.makeText(getApplicationContext(), "SMS sent.", Toast.LENGTH_LONG).show();
-        }
-
-        catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "SMS faild, please try again.", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.inter_main, menu);
+        return true;
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        if(pos == 0){
-            Toast.makeText(MeetAPastor.this, "Choose a pastor to meet", Toast.LENGTH_SHORT).show();
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        int id = item.getItemId();
+        if(id == R.id.action_refresh){
+
+            webView.loadUrl("https://favouritemall.com/meet-a-pastor/");
         }
-        else if(pos == 1){
-            nsikak = "nsikakthompson73@gmail.com";
-        }
-        else if(pos == 2){
-            hanson = "hansonofon@gmail.com";
-        }
-        else if(pos == 3){
-            kelly = "cosmic.data.evolution@gmail.com";
-        }
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
+        return super.onOptionsItemSelected(item);
     }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-    }
-
-
-
 }

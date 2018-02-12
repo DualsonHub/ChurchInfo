@@ -95,7 +95,7 @@ public class Announcement extends AppCompatActivity {
         });
 
 
-        webView.loadUrl("http://www.lfciyekogba.org/announcement/");
+        webView.loadUrl("https://favouritemall.com/sunday-service-announcements/");
 
 
     }
@@ -131,7 +131,7 @@ public class Announcement extends AppCompatActivity {
         int id = item.getItemId();
         if(id == R.id.action_refresh){
 
-            webView.loadUrl("http://nextdeegit.com.ng/lfcapp/announcement/");
+            webView.loadUrl("https://favouritemall.com/sunday-service-announcements/");
         }
         return super.onOptionsItemSelected(item);
     }

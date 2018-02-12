@@ -97,7 +97,7 @@ public class Inter_Activity extends AppCompatActivity {
         });
 
 
-            webView.loadUrl("http://www.lfciyekogba.org/service-units/");
+            webView.loadUrl("https://favouritemall.com/service-group-units/");
 
 
 
@@ -163,7 +163,7 @@ public class Inter_Activity extends AppCompatActivity {
                             });
 
 
-                            webView.loadUrl("http://www.lfciyekogba.org/service-units/");
+                            webView.loadUrl("https://favouritemall.com/service-group-units/");
 
 
 
@@ -290,7 +290,7 @@ public class Inter_Activity extends AppCompatActivity {
                 });
 
 
-                webView.loadUrl("http://www.lfciyekogba.org/service-units/");
+                webView.loadUrl("https://favouritemall.com/service-group-units/");
 
 
 
